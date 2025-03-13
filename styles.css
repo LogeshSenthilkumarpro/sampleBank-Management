@@ -1,0 +1,378 @@
+/* General Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Root Variables for Consistent Theming */
+:root {
+  --primary-color: #1976d2; /* Material Blue */
+  --secondary-color: #f50057; /* Material Pink */
+  --background-color: #f4f6f8; /* Light Gray Background */
+  --card-background: #ffffff; /* White for Cards */
+  --text-primary: #333333; /* Dark Gray Text */
+  --text-secondary: #666666; /* Lighter Gray Text */
+  --border-color: #e0e0e0; /* Light Border */
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+/* Body Styling */
+body {
+  background-color: var(--background-color);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+/* Container Styling for All Pages */
+.home, .login-container, .signup-container, .admin-dashboard {
+  padding: 30px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; /* Added to ensure containers don’t collapse */
+}
+
+/* Navigation Bar Styling (AppBar) */
+.MuiAppBar-root {
+  background: linear-gradient(90deg, var(--primary-color), #1565c0) !important;
+  box-shadow: var(--shadow);
+}
+
+.MuiTypography-h6 {
+  font-weight: 700 !important;
+  letter-spacing: 1px;
+}
+
+.MuiButton-root {
+  transition: var(--transition);
+}
+
+.MuiButton-root:hover {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  transform: translateY(-2px);
+}
+
+/* Home Page Styling */
+.home {
+  text-align: center;
+}
+
+.home h3 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: var(--primary-color);
+}
+
+.home h6 {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-bottom: 30px;
+}
+
+.home .MuiCard-root {
+  transition: var(--transition);
+  box-shadow: var(--shadow);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.home .MuiCard-root:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.home .MuiCardMedia-root {
+  height: 160px;
+  object-fit: cover;
+}
+
+.home .MuiCardContent-root {
+  padding: 20px !important;
+}
+
+.home .MuiTypography-h5 {
+  font-size: 1.3rem;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.home .MuiTypography-body2 {
+  color: var(--text-secondary);
+}
+
+/* Login and Signup Containers - UPDATED */
+.login-container, .signup-container {
+  max-width: 450px;
+  width: 100%;
+  margin: 20px auto;
+  padding: 30px;
+  border: none;
+  border-radius: 15px;
+  background: var(--card-background);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.login-container:hover, .signup-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.login-container h2, .signup-container h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+/* UPDATED: Form Fields Container */
+.login-container form, .signup-container form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.login-container div, .signup-container div {
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+.login-container label, .signup-container label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+/* FIXED: Material UI TextField Inputs - Remove conflicting styles */
+/* Let Material UI handle its own input styling */
+.MuiTextField-root,
+.MuiFormControl-root {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.MuiInputBase-input {
+  font-size: 1rem;
+  padding: 10px 12px; /* Consistent padding */
+}
+
+/* Only style non-Material UI inputs if needed */
+input:not(.MuiInputBase-input),
+select:not(.MuiSelect-select) {
+  width: calc(100% - 30px); /* Avoid overflowing */
+  padding: 10px 12px;
+  height: 48px;
+  box-sizing: border-box;
+}
+
+/* UPDATED: Form Buttons */
+.login-container button, .signup-container button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 10px;
+  background: linear-gradient(90deg, var(--primary-color), #1565c0);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: var(--transition);
+  text-transform: uppercase;
+}
+
+.login-container button:hover, .signup-container button:hover {
+  background: linear-gradient(90deg, #1565c0, var(--primary-color));
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Admin Dashboard Styling */
+.admin-dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.admin-dashboard h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.admin-dashboard table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 20px;
+  background: var(--card-background);
+  box-shadow: var(--shadow);
+  border-radius: 10px;
+  overflow: hidden;
+  min-height: 150px; /* Added to ensure table is visible even when empty */
+}
+
+.admin-dashboard td[colspan] {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  padding: 30px !important; /* Increased padding for visibility */
+}
+
+.admin-dashboard th, .admin-dashboard td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.admin-dashboard th {
+  background: linear-gradient(90deg, #e3f2fd, #bbdefb);
+  color: var(--text-primary);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+.admin-dashboard td {
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+.admin-dashboard tr:last-child td {
+  border-bottom: none;
+}
+
+.admin-dashboard tr:hover {
+  background-color: #f9f9f9;
+}
+
+.admin-dashboard button {
+  margin-right: 8px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.admin-dashboard button:nth-child(1) {
+  background-color: #4caf50; /* Green for Activate */
+  color: white;
+}
+
+.admin-dashboard button:nth-child(2) {
+  background-color: #ff9800; /* Orange for Hold */
+  color: white;
+}
+
+.admin-dashboard button:nth-child(3) {
+  background-color: #f44336; /* Red for Delete */
+  color: white;
+}
+
+.admin-dashboard button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Customer Dashboard (My Account) Styling */
+.MuiContainer-root {
+  max-width: 1200px !important;
+  margin: 0 auto;
+}
+
+.MuiTypography-h4 {
+  font-size: 2.2rem !important;
+  color: var(--primary-color);
+  margin-bottom: 20px !important;
+}
+
+.MuiCard-root {
+  border-radius: 10px !important;
+  box-shadow: var(--shadow) !important;
+  transition: var(--transition);
+}
+
+.MuiCard-root:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+.MuiCardContent-root {
+  padding: 20px !important;
+}
+
+.MuiTypography-h6 {
+  font-size: 1.4rem !important;
+  color: var(--primary-color);
+  margin-bottom: 15px !important;
+}
+
+.MuiTypography-body1 {
+  font-size: 1rem !important;
+  color: var(--text-primary);
+  margin-bottom: 8px !important;
+}
+
+/* Logout Button Styling */
+.MuiButton-containedSecondary {
+  background-color: var(--secondary-color) !important;
+  color: white !important;
+  padding: 8px 20px !important;
+  border-radius: 8px !important;
+  transition: var(--transition);
+}
+
+.MuiButton-containedSecondary:hover {
+  background-color: #c51162 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* UPDATED: Error Message Styling */
+.login-container p, .signup-container p {
+  color: #f44336;
+  text-align: center;
+  margin: 10px 0;
+  font-size: 0.9rem;
+  background-color: rgba(244, 67, 54, 0.1);
+  padding: 8px;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+/* ADDED: Responsive adjustments */
+@media (max-width: 500px) {
+  .login-container, .signup-container {
+    padding: 20px;
+    max-width: 90%;
+  }
+  
+  .login-container h2, .signup-container h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+  
+  .login-container input,
+  .login-container select,
+  .signup-container input,
+  .signup-container select {
+    padding: 10px;
+    min-height: 44px;
+  }
+  
+  .login-container button, .signup-container button {
+    padding: 12px;
+  }
+}
